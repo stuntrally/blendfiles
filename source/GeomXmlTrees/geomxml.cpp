@@ -309,40 +309,74 @@ int _tmain(int argc, _TCHAR* argv[])
 	vector<string> vTrunk = ListFiles(path.c_str(), "Trunk.*\.xml");
 	vector<string> vTwig  = ListFiles(path.c_str(), "Twig.*\.xml");
 
-	//  same count
-	if (vDae.size() != vTrunk.size() || vTrunk.size() != vTwig.size())
-		return Exit("Count of files *.dae, Trunk*.xml and Twig*.xml is not the same.");
-	if (vDae.size() == 0)
-		return Exit("No files (*.dae or Trunk*.xml or Twig*.xml.");
-
-
-	//  for each tree
-	for (int i=0; i < vDae.size(); ++i)
-	//for (int i=0; i < 1; ++i)  //test
+	if (vDae.size() == 0 && vTrunk.size() == 0 && vTwig.size() == 0)
 	{
-		const string sTree = vDae[i];  // only name needed from .dae
-		const string name = sTree.substr(0,sTree.length()-4);  // tree name, no extension
-		const string fileTrunk = vTrunk[i];
-		const string fileTwig = vTwig[i];
-		cout << "Tree name: "+name+"  "+fileTrunk+", "+fileTwig+"\n";
+		///  regular meshes, only 1 .mesh.xml
+		vector<string> vMesh = ListFiles(path.c_str(), ".*\.xml");
+		if (vMesh.size() == 0)
+			return Exit("No files *.mesh.xml (regular) or Trees: same count of *.dae, Trunk*.xml and Twig*.xml)");
 		
+		for (int i=0; i < vMesh.size(); ++i)
+		//for (int i=0; i < 1; ++i)  //test
+		{
+			const string sName = vMesh[i];
+			const string name = sName.substr(0,sName.length()-9);  // mesh name, no extension
+			const string fileMesh = vMesh[i];
+			cout << "Mesh name: "+name+"  "+fileMesh+"\n";
 
-		vector<string> vPos,vNorm,vUV;  //vertex data: pos x3, norm x3, uv x2
-		vector<string> vId;  // read face indicies
-		
-		//  Save .mesh.xml output
-		TiXmlDocument oXml;  TiXmlElement oRoot("mesh");
-		TiXmlElement subs("submeshes");
 
-		LoadSubmesh(fileTrunk, vId, vPos, vNorm, vUV);
-		SaveSubmesh(subs, name+"Trunk", vId, vPos, vNorm, vUV);
+			vector<string> vPos,vNorm,vUV;  //vertex data: pos x3, norm x3, uv x2
+			vector<string> vId;  // read face indicies
+			
+			//  Save .mesh.xml output
+			TiXmlDocument oXml;  TiXmlElement oRoot("mesh");
+			TiXmlElement subs("submeshes");
 
-		LoadSubmesh(fileTwig, vId, vPos, vNorm, vUV);
-		SaveSubmesh(subs, name+"Twig", vId, vPos, vNorm, vUV);
+			LoadSubmesh(fileMesh, vId, vPos, vNorm, vUV);
+			SaveSubmesh(subs, name/**/, vId, vPos, vNorm, vUV);
 
-		oRoot.InsertEndChild(subs);
-		oXml.InsertEndChild(oRoot);
-		oXml.SaveFile(string(path+name+".mesh.xml").c_str());
+			oRoot.InsertEndChild(subs);
+			oXml.InsertEndChild(oRoot);
+			oXml.SaveFile(string(path+name+"x.mesh.xml").c_str());
+		}
+	}
+	else
+	{
+		///  same count  Trees
+		//  .dae (only for name), Trunk*.mesh.xml and Twig*.mesh.xml
+		if (vDae.size() != vTrunk.size() || vTrunk.size() != vTwig.size())
+			return Exit("Count of files *.dae, Trunk*.xml and Twig*.xml is not the same.");
+		if (vDae.size() == 0)
+			return Exit("No files (*.dae or Trunk*.xml or Twig*.xml.");
+
+		//  for each tree
+		for (int i=0; i < vDae.size(); ++i)
+		//for (int i=0; i < 1; ++i)  //test
+		{
+			const string sTree = vDae[i];  // only name needed from .dae
+			const string name = sTree.substr(0,sTree.length()-4);  // tree name, no extension
+			const string fileTrunk = vTrunk[i];
+			const string fileTwig = vTwig[i];
+			cout << "Tree name: "+name+"  "+fileTrunk+", "+fileTwig+"\n";
+			
+
+			vector<string> vPos,vNorm,vUV;  //vertex data: pos x3, norm x3, uv x2
+			vector<string> vId;  // read face indicies
+			
+			//  Save .mesh.xml output
+			TiXmlDocument oXml;  TiXmlElement oRoot("mesh");
+			TiXmlElement subs("submeshes");
+
+			LoadSubmesh(fileTrunk, vId, vPos, vNorm, vUV);
+			SaveSubmesh(subs, name+"Trunk", vId, vPos, vNorm, vUV);
+
+			LoadSubmesh(fileTwig, vId, vPos, vNorm, vUV);
+			SaveSubmesh(subs, name+"Twig", vId, vPos, vNorm, vUV);
+
+			oRoot.InsertEndChild(subs);
+			oXml.InsertEndChild(oRoot);
+			oXml.SaveFile(string(path+name+".mesh.xml").c_str());
+		}
 	}
 
 	//cout << "Export OK.\n";
