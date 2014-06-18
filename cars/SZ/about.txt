@@ -1,0 +1,7 @@
+Suzuki Escudo Pikes Peak
+Author: cobe571
+License: CC-BY
+http://www.blendswap.com/blends/view/22108
+
+Modifications by CryHam:
+uv unwrap, and small fixes for game, remade wheels
