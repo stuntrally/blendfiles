@@ -1,5 +1,7 @@
-Subaru Impreza WRX STI by lubomircenovsky
+Subaru Impreza WRX STI
+by lubomircenovsky
 CC-BY-SA 3.0
+http://www.blendswap.com/blends/view/47523
 
 Modifications by Tapio:
 Removed almost all subsurface modifiers, applied some decimation.

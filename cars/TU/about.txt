@@ -1,0 +1,7 @@
+Tumbler Concept Colored
+Authors: Chris Kuhn, carlospanganiban
+License: CC-BY
+http://www.blendswap.com/blends/view/51751
+
+Modifications by CryHam:
+uv unwrap, and adjust, export for game
