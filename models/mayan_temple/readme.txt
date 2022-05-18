@@ -1,6 +1,6 @@
+----  mayan.mesh
 Mayan Temple fixed
-Fixed versions of Percival's "Mayan Temple". 
-
-Use by Creative Commons License: Attribution.
-
-http://www.blender-models.com/model-downloads/architecture/id/mayan-temple-fixed/
+Author: admin
+Licence: CC BY
+https://www.blender-models.com/model-downloads/architecture/id/mayan-temple-fixed/
+modified by CryHam: texture from 0AD pyramid_big, added AO baked
