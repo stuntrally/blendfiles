@@ -1,6 +1,6 @@
 #include "pch.h"
 using namespace std;
-using namespace boost;
+//using namespace boost;
 
 
 //  Helper program for trees exported from blender in mesh.xml
@@ -74,7 +74,8 @@ int Exit(string msg, int i=1)
 	if (i==1)  cout << "Error: ";
 	cout << msg << "\n";
 	cout << "Press enter to exit.\n";
-	getchar();
+	//int a;  cin >> a;
+	//getchar();
 	return i;
 }
 
@@ -148,13 +149,12 @@ vector<string> ListFiles(const char* sPath, const char* sPattern=".*")
 
 //  Load geometry from .mesh.xml (1 submesh only)
 //----------------------------------------------------------------------------
-int LoadSubmesh(string file,
+int LoadSubmesh(string file, TiXmlDocument& doc,
 	vector<string>& vId, vector<string>& vPos, vector<string>& vNorm, vector<string>& vUV)
 {
 	vId.clear();  vPos.clear();  vNorm.clear();  vUV.clear();
 	
-	TiXmlDocument doc;
-	if (!doc.LoadFile(file.c_str()))  return Exit("Can't read file.");
+	if (!doc.LoadFile(file.c_str()))  return Exit("Can't read file: " + file);
 		
 	TiXmlElement* root = doc.RootElement();
 	if (!root)  return Exit("No root");
@@ -301,13 +301,20 @@ void SaveSubmesh(TiXmlElement& subs/*<submeshes>*/, string sMtr,
 
 ///  main
 //---------------------------------------------------------------------------------------------------------------
+#ifdef _WIN32
 int _tmain(int argc, _TCHAR* argv[])
+#else
+int main(int argc, char** argv)
+#endif
 {
-	//string path = "c:/";
-	string path = "./";
+	const string path = "./";
+	const string pathOut = "./out/";
+	const string xmlTool = "/usr/bin/OgreXMLConverter -t ";
+
 	vector<string> vDae   = ListFiles(path.c_str(), ".*\.dae");
 	vector<string> vTrunk = ListFiles(path.c_str(), "Trunk.*\.xml");
 	vector<string> vTwig  = ListFiles(path.c_str(), "Twig.*\.xml");
+	TiXmlDocument doc, oXml;
 
 	if (vDae.size() == 0 && vTrunk.size() == 0 && vTwig.size() == 0)
 	{
@@ -322,22 +329,29 @@ int _tmain(int argc, _TCHAR* argv[])
 			const string sName = vMesh[i];
 			const string name = sName.substr(0,sName.length()-9);  // mesh name, no extension
 			const string fileMesh = vMesh[i];
-			cout << "Mesh name: "+name+"  "+fileMesh+"\n";
+			cout << "Mesh name: "+name+"  file: "+fileMesh+"\n";
 
 
 			vector<string> vPos,vNorm,vUV;  //vertex data: pos x3, norm x3, uv x2
 			vector<string> vId;  // read face indicies
 			
-			//  Save .mesh.xml output
-			TiXmlDocument oXml;  TiXmlElement oRoot("mesh");
-			TiXmlElement subs("submeshes");
+			doc.Clear();
+			LoadSubmesh(path + fileMesh, doc, vId, vPos, vNorm, vUV);
+			cout << "pos: " << vPos.size() << " tri: " << vId.size()/3 << endl;
 
-			LoadSubmesh(fileMesh, vId, vPos, vNorm, vUV);
+			//  Save .mesh.xml output
+			oXml.Clear();
+			/*TiXmlDocument oXml;*/  TiXmlElement oRoot("mesh");
+			TiXmlElement subs("submeshes");
 			SaveSubmesh(subs, name/**/, vId, vPos, vNorm, vUV);
 
 			oRoot.InsertEndChild(subs);
 			oXml.InsertEndChild(oRoot);
-			oXml.SaveFile(string(path+name+"x.mesh.xml").c_str());
+			string fileOut = pathOut + name + ".mesh.xml";
+			oXml.SaveFile(fileOut.c_str());
+
+			string cmd = xmlTool + fileOut;
+			system(cmd.c_str());
 		}
 	}
 	else
@@ -367,10 +381,10 @@ int _tmain(int argc, _TCHAR* argv[])
 			TiXmlDocument oXml;  TiXmlElement oRoot("mesh");
 			TiXmlElement subs("submeshes");
 
-			LoadSubmesh(fileTrunk, vId, vPos, vNorm, vUV);
+			LoadSubmesh(fileTrunk, doc, vId, vPos, vNorm, vUV);
 			SaveSubmesh(subs, name+"Trunk", vId, vPos, vNorm, vUV);
 
-			LoadSubmesh(fileTwig, vId, vPos, vNorm, vUV);
+			LoadSubmesh(fileTwig, doc, vId, vPos, vNorm, vUV);
 			SaveSubmesh(subs, name+"Twig", vId, vPos, vNorm, vUV);
 
 			oRoot.InsertEndChild(subs);

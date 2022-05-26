@@ -1,10 +1,6 @@
 #ifndef __PCH_H__
 #define __PCH_H__
 
-//  this is the precompiled header file for VS, only for Windows build
-#ifdef _MSC_VER
-// include file for project specific include files that are used frequently, but are changed infrequently
-
 ///  std
 #include <vector>
 #include <string>
@@ -24,10 +20,10 @@
 	#include <tchar.h>
 #endif
 
-#include <boost/filesystem.hpp>
-#include <boost/regex.hpp>
+#include <filesystem>
+#include <regex>
 
+#define TIXML_USE_STL
 #include "tinyxml.h"
 
-#endif
 #endif
