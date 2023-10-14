@@ -1,0 +1,5 @@
+----  storage_tank_2
+Rust pipe tank
+Author: Fruit_Route
+License: CC-BY 4.0
+https://sketchfab.com/3d-models/rust-pipe-tank-771fcf3c9d7b450b9eaa763902b41622
