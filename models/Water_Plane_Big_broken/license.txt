@@ -1,0 +1,6 @@
+based on original water_plane_big.mesh (imported)
+Plane Martin m 130 Cycles
+Author: noenmaster
+License: CC0
+https://www.blendswap.com/blends/view/66829
+edited by rubberduck, CC0
