@@ -1,1 +1,0 @@
-blend files are either forked from their original, or meshes imported with the .mesh importer. Meaning their original license should apply.

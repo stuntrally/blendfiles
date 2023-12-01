@@ -1,5 +1,0 @@
-----  mining_truck
-mining_truck / Caterpillar 789c
-Author: Sinh Nguyễn
-License: CC-BY 4.0
-https://sketchfab.com/3d-models/caterpillar-789c-60d5ff8cf56747fba0864be02022ef84
