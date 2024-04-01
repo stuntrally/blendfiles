@@ -1,5 +1,7 @@
 blendfiles
 ==========
 
-Contains Blender (.blend) files for most models and cars used in Stunt Rally.
-And some tool programs, scripts.
+Contains Blender (.blend) files for most models and vehicles/cars used in Stunt Rally.  
+With textures and txt files for info.  
+
+Has also some tool programs, scripts.
