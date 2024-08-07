@@ -1,0 +1,11 @@
+Models:		bush01..05.mesh
+Artist:		yughues / Nobiax
+License:	CC0
+Date:		19/07/2012
+Url:		https://opengameart.org/content/bushes
+
+Models:		bush11..15.mesh
+Artist:		yughues / Nobiax
+License:	CC0
+Date:		08/01/2013
+Url:		https://opengameart.org/content/tropical-shrubs
