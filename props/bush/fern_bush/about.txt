@@ -1,0 +1,5 @@
+Models:		fern_bush.mesh
+Artist:		patriciateal880
+License:	CC-BY 4.0
+Date:		11/01/2023
+Url:		https://sketchfab.com/3d-models/fern-bush-0237b39ed63741c1a802d33811fdaaa8

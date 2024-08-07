@@ -1,0 +1,5 @@
+Model:		tropic_leaves.mesh
+Artist:		adam127
+License:	CC-BY 4.0
+Date:		29/07/2019
+Url:		https://sketchfab.com/3d-models/tropical-plant-7365d3fc0eb148028c751364dd172952

@@ -1,0 +1,5 @@
+Model:		tropic_peacock.mesh
+Artist:		The_Structure_World
+License:	CC-BY 4.0
+Date:		02/01/2022
+Url:		https://sketchfab.com/3d-models/tropcial-peacock-plant-4af286ea07c94254a3830de9a56dabbc

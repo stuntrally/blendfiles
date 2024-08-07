@@ -1,0 +1,5 @@
+Model:		bushes1.mesh  bushes2.mesh   Low Poly Bushes
+Artist:		OliverMH
+License:	CC-BY
+Date:		15/11/2013
+Url:		https://www.blendswap.com/blend/10856

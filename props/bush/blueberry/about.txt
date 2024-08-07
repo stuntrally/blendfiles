@@ -1,0 +1,5 @@
+Model:		blueberry.mesh
+Artist:		rufusrockwell
+License:	CC-BY 4.0
+Date:		06/11/2017
+Url:		https://sketchfab.com/3d-models/blueberry-2d6ec794ac5c45939a7f23cb9d219e10

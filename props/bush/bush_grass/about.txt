@@ -1,0 +1,5 @@
+Model:		bush_grass1.mesh  bush_grass2.mesh
+Artist:		Pixel Life
+License:	CC-BY 4.0
+Date:		27/11/2023
+Url:		https://sketchfab.com/3d-models/grass-bushes-game-ready-asset-aa1fa43af9bf4228adfddb54ea123ad1
