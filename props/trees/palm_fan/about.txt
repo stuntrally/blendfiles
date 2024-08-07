@@ -1,0 +1,5 @@
+Model:		palm_fan.mesh
+Artist:		TreDè  luigi_disilvestre
+License:	CC-BY 4.0
+Date:		29/08/2022
+Url:		https://sketchfab.com/3d-models/free-game-ready-palm-e8c0ea53410947b0b7f20d33702f4098

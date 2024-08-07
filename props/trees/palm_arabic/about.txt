@@ -1,0 +1,5 @@
+Model:		palm_arabic.mesh
+Artist:		rodrigo  gelmi.com.br
+License:	CC-BY 4.0
+Date:		24/06/2020
+Url:		https://sketchfab.com/3d-models/arabic-palmtree-d76f0654b92d4cf994b528555525219b

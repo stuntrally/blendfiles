@@ -1,0 +1,5 @@
+Model:		palm_coconut1.mesh
+Artist:		ar.jethin  Pixel_Monster
+License:	CC-BY 4.0
+Date:		22/11/2020
+Url:		https://sketchfab.com/3d-models/coconut-tree-low-poly-8c5d6b661b2f4c37834d87cd187eb907
