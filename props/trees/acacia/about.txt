@@ -1,0 +1,5 @@
+Model:		acacia1.mesh
+Artist:		evolveduk
+License:	CC-BY 4.0
+Date:		06/06/2022
+Url:		https://sketchfab.com/3d-models/acacia-tree-bb14c2bb679b4d0bb1c578a27e2ddabf

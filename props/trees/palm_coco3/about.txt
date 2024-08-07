@@ -1,0 +1,5 @@
+Models:		palm_coco3a.mesh  palm_coco3b.mesh
+Artist:		LordSamueliSolo  LadyLionStudios
+License:	CC-BY 4.0
+Date:		18/03/2022
+Url:		https://sketchfab.com/3d-models/coconut-palm-trees-free-low-poly-0e84a55ab79a44ecaa693675408aa252

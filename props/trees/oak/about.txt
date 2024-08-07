@@ -1,0 +1,5 @@
+Models:		oak1.mesh  oak2.mesh  oak3.mesh
+Artist:		LordSamueliSolo  LadyLionStudios
+License:	CC-BY 4.0
+Date:		20/03/2022
+Url:		https://sketchfab.com/3d-models/oak-trees-free-low-poly-7a689370f9ec46cea2cbc94641c225e6

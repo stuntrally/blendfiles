@@ -1,0 +1,5 @@
+Models:		beech1_wide.mesh  beech2_tall.mesh
+Artist:		LordSamueliSolo  LadyLionStudios
+License:	CC-BY 4.0
+Date:		18/03/2022
+Url:		https://sketchfab.com/3d-models/beech-trees-free-low-poly-f59546058ee44e73920e79fa78614f21
